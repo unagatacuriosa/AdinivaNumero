@@ -1,10 +1,13 @@
-const measureKelvin = function () {
-  const measurement = {
-    type: "temp",
-    unit: "celsius",
-    value: prompt("Introduce los grados Celsius"),
-  };
-  const kelvin = measurement.value + 273;
-  return kelvin;
-};
-measureKelvin();
+const primerParrafo = document.querySelector('p')
+
+console.log(primerParrafo)
+
+const parrafoImportante = document.querySelector('#importante')
+
+primerParrafo.style.color = 'red'
+primerParrafo.style.background = 'yellow'
+
+parrafoImportante.style.background = 'blue'
+parrafoImportante.style.fontSize = '3rem'
+parrafoImportante.style.color = 'White'
+parrafoImportante.textContent = 'Este es el parrafo SUPER importante'
