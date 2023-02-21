@@ -1,13 +1,13 @@
-const primerParrafo = document.querySelector('p')
+// 1º paso: Seleccionar los elementos del DOM y guardarlos en variables
+const scoreField = document.querySelector('.score')
+const checkButton = document.querySelector('.check')
+scoreField.textContent = 10
 
-console.log(primerParrafo)
+// Numero aleatorio del 1 al 20
+//let secretNumber = Math.trunc(Math.random() * 20) + 1
 
-const parrafoImportante = document.querySelector('#importante')
+checkButton.addEventListener('click', alerta)
 
-primerParrafo.style.color = 'red'
-primerParrafo.style.background = 'yellow'
-
-parrafoImportante.style.background = 'blue'
-parrafoImportante.style.fontSize = '3rem'
-parrafoImportante.style.color = 'White'
-parrafoImportante.textContent = 'Este es el parrafo SUPER importante'
+function alerta() {
+  alert('You click me!')
+}
