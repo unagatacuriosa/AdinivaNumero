@@ -35,6 +35,12 @@ function fnCheckButton() {
     messageField.textContent = 'WIN!'
     if (score > highscore) highscore = highscoreField.textContent = score
     // Cambiar el color del fondo o del body o lo que sea
+    numberField.textContent = secretNumber
+    document.body.style.backgroundColor = 'LimeGreen'
+  } else if (score === 1) {
+    mostarMensaje('YOU LOSE')
+    scoreField.textContent = 0
+    document.body.style.backgroundColor = 'Crimson'
   } else {
     const mensaje =
       number < secretNumber ? 'El número es mayor' : 'El número es menor'
