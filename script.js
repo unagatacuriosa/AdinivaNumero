@@ -8,16 +8,15 @@ const messageField = document.querySelector('.message')
 const numberField = document.querySelector('.number')
 
 // 2º paso: Crear las variables que necesitamos
-let score = 20
+let score
 let highscore = 0
 
 // Obtener número aleatorio
 const MIN_NUMBER = 1
 const MAX_NUMBER = 20
-const secretNumber = Math.trunc(Math.random() * MAX_NUMBER) + MIN_NUMBER
+let secretNumber
 
-// Control 2 por log
-console.log(`El número es ${secretNumber}`)
+fnAgainIniApp()
 
 // 3º Capturar el checkButton y agregarle un evento y mostrar un mensaje
 checkButton.addEventListener('click', fnCheckButton)
@@ -51,3 +50,16 @@ function fnCheckButton() {
 }
 
 // Otra vez
+againButton.addEventListener('click', fnAgainIniApp)
+
+function fnAgainIniApp() {
+  // Control 2 por log
+  score = 20
+  scoreField.textContent = score
+  guessField.value = ''
+  secretNumber = Math.trunc(Math.random() * MAX_NUMBER) + MIN_NUMBER
+  mostarMensaje('Empieza a adiviar...')
+  document.body.style.backgroundColor = '#222'
+  numberField.textContent = '?'
+  console.log(`El número es ${secretNumber}`)
+}
