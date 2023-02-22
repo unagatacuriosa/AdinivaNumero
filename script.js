@@ -10,6 +10,7 @@ const numberField = document.querySelector('.number')
 // 2º paso: Crear las variables que necesitamos
 let score
 let highscore = 0
+let localStore
 
 // Obtener número aleatorio
 const MIN_NUMBER = 1
@@ -32,6 +33,10 @@ function fnCheckButton() {
   console.log(`El número ingresado es ${number}`)
   if (number === secretNumber) {
     messageField.textContent = 'WIN!'
+
+    localStore = localStorage.setItem('highscore', highscore)
+    console.log(localStore)
+
     if (score > highscore) highscore = highscoreField.textContent = score
     // Cambiar el color del fondo o del body o lo que sea
     numberField.textContent = secretNumber
@@ -53,7 +58,12 @@ function fnCheckButton() {
 againButton.addEventListener('click', fnAgainIniApp)
 
 function fnAgainIniApp() {
-  // Control 2 por log
+  if (localStore == 20) {
+    highscore = 20
+  } else {
+    highscore = localStorage.getItem('highscore')
+    console.log(highscore)
+  }
   score = 20
   scoreField.textContent = score
   guessField.value = ''
