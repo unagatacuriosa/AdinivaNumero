@@ -2,42 +2,46 @@
 const scoreField = document.querySelector('.score')
 const checkButton = document.querySelector('.check')
 const againButton = document.querySelector('.again')
-const guessButton = document.querySelector('.guess')
-const highscoreButton = document.querySelector('.highscore')
-const messageButton = document.querySelector('.message')
-const numberButton = document.querySelector('.number')
-
-//Control por consola de las variables
-/*console.log(
-  scoreField,
-  checkButton,
-  againButton,
-  guessButton,
-  highscoreButton,
-  messageButton,
-  numberButton
-)*/
+const guessField = document.querySelector('.guess')
+const highscoreField = document.querySelector('.highscore')
+const messageField = document.querySelector('.message')
+const numberField = document.querySelector('.number')
 
 // 2º paso: Crear las variables que necesitamos
-const score = 20
-const highscore = 0
+let score = 20
+let highscore = 0
 
 // Obtener número aleatorio
 const MIN_NUMBER = 1
 const MAX_NUMBER = 20
 const secretNumber = Math.trunc(Math.random() * MAX_NUMBER) + MIN_NUMBER
 
-const number = guessField.value
-
 // Control 2 por log
 console.log(`El número es ${secretNumber}`)
-console.log(`El número ingresado es ${number}`)
-// 3º Crear ls funciones que necesitamos
 
-checkButton.addEventListener('click', alerta)
-againButton.addEventListener('click', alerta)
+// 3º Capturar el checkButton y agregarle un evento y mostrar un mensaje
+checkButton.addEventListener('click', fnCheckButton)
 
-function alerta() {
-  alert('You click me!')
+function mostarMensaje(mensaje) {
+  messageField.textContent = mensaje
 }
-//scoreField.textContent = 20
+
+function fnCheckButton() {
+  // Aunque guessField sea un input number su valor en un string
+  const number = Number(guessField.value)
+
+  console.log(`El número ingresado es ${number}`)
+  if (number === secretNumber) {
+    messageField.textContent = 'WIN!'
+    if (score > highscore) highscore = highscoreField.textContent = score
+    // Cambiar el color del fondo o del body o lo que sea
+  } else {
+    const mensaje =
+      number < secretNumber ? 'El número es mayor' : 'El número es menor'
+    mostarMensaje(mensaje)
+    score--
+    scoreField.textContent = score
+  }
+}
+
+// Otra vez
