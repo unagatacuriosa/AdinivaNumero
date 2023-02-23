@@ -4,7 +4,8 @@
   "description": "Juego de adivinar número",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "scp -P 22123  /home/alumno/Escritorio/Trabajos/JavaScript/curso-js/AdinivaNumero/* gabi@gabi.certweb.infenlaces.com:/home/gabi/gabiphp/sitiophp/AdivinaNumero/"
   },
   "repository": {
     "type": "git",
